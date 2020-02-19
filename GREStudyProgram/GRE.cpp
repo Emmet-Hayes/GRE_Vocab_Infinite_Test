@@ -586,6 +586,42 @@ std::vector<Vocab> initializeVocabArray(unsigned size) {
     words[319] = Vocab("contentious", "likely to argue", "Since old grandpa Harry became very contentious during the summer when only reruns were on T.V., the grandkids learned to hide from him at every opportunity.", 'A', PartOfSpeech::adjective);
     words[320] = Vocab("indigent", "poor; having very little/noun: a poor or needy person", "", 'A', PartOfSpeech::noun);
     words[321] = Vocab("supercilious", "haughty and disdainful; looking down on others", "Nelly felt the Quiz Bowl director acted superciliously towards the underclassmen; really, she fumed, must he act so preternaturally omniscient each time he intones some obscure fact—as though everybody knows that Mt. Aconcagua is the highest peak in South America.", 'A', PartOfSpeech::adjective);
+    words[322] = Vocab("alacrity", "an eager willingness to do something", "The first three weeks at his new job, Mark worked with such alacrity that upper management knew it would be giving him a promotion.", 'A', PartOfSpeech::noun);
+    words[323] = Vocab("expansive", "communicative, and prone to talking in a sociable manner", "After a few sips of cognac, the octogenarian shed his irascible demeanor and became expansive, speaking fondly of the “good old days”.", 'A', PartOfSpeech::noun);
+    words[324] = Vocab("anathema", "a detested person; the source of somebody's hate", "Hundreds of years ago, Galileo was anathema to the church; today the church is anathema to some on the left side of the political spectrum.", 'A', PartOfSpeech::noun);
+    words[325] = Vocab("nadir", "the lowest point", "For many pop music fans, the rap– and alternative-rock–dominated 90s were the nadir of musical expression.", 'A', PartOfSpeech::noun);
+    words[326] = Vocab("zeitgeist", "spirit of the times", "Each decade has its own zeitgeist—the 1990’s was a prosperous time in which the promise of the American Dream never seemed more palpable.", 'A', PartOfSpeech::noun);
+    words[327] = Vocab("expunge", "to eliminate completely", "When I turned 18, all of the shoplifting and jaywalking charges were expunged from my criminal record.", 'A', PartOfSpeech::noun);
+    words[328] = Vocab("pariah", "an outcast", "The once eminent scientist, upon being found guilty of faking his data, has become a pariah in the research community.", 'A', PartOfSpeech::noun);
+    words[329] = Vocab("jingoist", "a person who thinks their country is always right and who is in favor of aggressive acts against other countries", "In the days leading up to war, a nation typically breaks up into the two opposing camps: doves, who do their best to avoid war, and jingoists, who are only too eager to wave national flags from their vehicles and vehemently denounce those who do not do the same.", 'A', PartOfSpeech::noun);
+    words[330] = Vocab("factious", "produced by, or characterized by internal dissension", "The controversial bill proved factious, as dissension even within parties resulted", 'A', PartOfSpeech::adjective);
+    words[331] = Vocab("chary", "cautious,  suspiciously reluctant to do something", "Having received three speeding tickets in the last two months, Jack was chary of driving at all above the speed limit, even on a straight stretch of highway that looked empty for miles ahead.", 'A', PartOfSpeech::noun);
+    words[332] = Vocab("sedulous", "done diligently and carefully", "An avid numismatist, Harold sedulously amassed a collection of coins from over 100 countries—an endeavor that took over fifteen years across five continents.", 'A', PartOfSpeech::noun);
+    words[333] = Vocab("precipitate", "to cause to happen", "The government's mishandling of the hurricane's aftermath precipitated a widespread outbreak of looting and other criminal activity.", 'A', PartOfSpeech::verb);
+    /*words[334] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[335] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[336] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[337] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[338] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[339] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[340] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[341] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[342] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[343] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[344] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[345] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[346] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[347] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[348] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[349] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[350] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[351] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[352] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[353] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[354] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[355] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    words[356] = Vocab("", "", "", 'A', PartOfSpeech::noun);
+    */
     return words;
 }
 
@@ -674,25 +710,20 @@ int loadWordsFromFile(vector<Vocab>& words, string filename) {
     for (unsigned i = 0; i < words.size(); ++i) {
         std::getline(ifs, line);
         string ssn = line.substr(line.find_first_of('$')+1, line.find_last_of('$') - line.find_first_of('$') - 1);
-        //cout << ssn << '\t';
         words.at(i).setName(ssn);
         string ssd = line.substr(line.find('[')+1, line.find(']') - line.find('[') - 1);
-        //cout << ssd << '\t';
         words.at(i).setDefinition(ssd);
         string sse = line.substr(line.find('(')+1, line.find(')') - line.find('(') - 1);
-        //cout << sse << '\t';
         words.at(i).setExample(sse);
         string ssr = line.substr(line.find_first_of('#')+1, line.find_last_of('#') - line.find_first_of('#') - 1);
-        //cout << ssr << '\t';
         words.at(i).setRating(ssr[0]);
         string ssp = line.substr(line.find('{')+1, line.find('}') - line.find('{') - 1);
-        //cout << ssp << endl;
         words.at(i).setSpeechFromString(ssp);
     }
 }
 
 int mainmenu() {
-    vector<Vocab> words = initializeVocabArray(322);
+    vector<Vocab> words = initializeVocabArray(334);
     string userInput;
     bool loop = true;
     cout << "Welcome to my GRE prep test program.\n";

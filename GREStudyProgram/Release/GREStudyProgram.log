@@ -1,7 +1,8 @@
 ﻿  GRE.cpp
   Generating code
+C:\Users\gelli\source\repos\GREStudyProgram\GREStudyProgram\GRE.cpp(723): warning C4715: 'loadWordsFromFile': not all control paths return a value
   1 of 304 functions ( 0.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    33 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GREStudyProgram.vcxproj -> C:\Users\gelli\source\repos\GREStudyProgram\Release\GREStudyProgram.exe
